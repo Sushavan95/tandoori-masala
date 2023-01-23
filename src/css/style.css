@@ -582,6 +582,9 @@ input[type="range"]::-moz-range-thumb {
 .site-footer .social-icons--v2 li a svg {
   @apply fill-primary;
 }
+.site-footer .newsletter-form button[type="submit"] {
+  max-height: 50px;
+}
 /* OUTLET INTRO PAGE */
 .outlet-intro-logo {
   @apply pl-12 pr-12 pb-8 lg:pl-16 lg:pr-16 lg:pb-12 bg-white border-l-8 border-r-8 border-accent;

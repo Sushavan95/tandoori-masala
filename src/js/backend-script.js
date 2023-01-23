@@ -22,13 +22,13 @@ $(document).ready(function () {
   // Newsletter Form
   $("#newsletterForm").validate({
     rules: {
-      git_email: {
+      nf_email: {
         required: true,
         pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       },
     },
     messages: {
-      git_email: {
+      nf_email: {
         required: "This field is required",
         pattern: "Please enter a valid email.",
       },
@@ -67,6 +67,92 @@ $(document).ready(function () {
       form.reset();
     },
   });
+
+  // LOGIN FORM
+  $("#loginForm").validate({
+    rules: {
+      lf_email: {
+        required: true,
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      },
+    },
+    messages: {
+      lf_email: {
+        required: "This field is required.",
+        pattern: "Please enter a valid email.",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      form.reset();
+    },
+  });
+
+  // REGISTER FORM
+  $("#registerForm").validate({
+    rules: {
+      rf_phone: {
+        required: true,
+        pattern: /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
+      },
+      rf_email: {
+        required: true,
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      },
+    },
+    messages: {
+      rf_phone: {
+        required: "This field is required.",
+        pattern: "Please enter a valid phone number.",
+      },
+      rf_email: {
+        required: "This field is required.",
+        pattern: "Please enter a valid email.",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      form.reset();
+    },
+  });
+
+  // ADD ADDRSSS FORM
+  $("#addAddressForm").validate({
+    rules: {
+      aaf_phone: {
+        required: true,
+        pattern: /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
+      },
+      aaf_email: {
+        required: true,
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      },
+      aaf_pin: {
+        required: true,
+        pattern: /^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/,
+      },
+    },
+    messages: {
+      aaf_phone: {
+        required: "This field is required.",
+        pattern: "Please enter a valid phone number.",
+      },
+      aaf_email: {
+        required: "This field is required.",
+        pattern: "Please enter a valid email.",
+      },
+      aaf_pin: {
+        required: "This field is required.",
+        pattern: "Please enter a valid pin code.",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      form.reset();
+    },
+  });
+
+
   $.validator.addMethod(
     "pattern",
     function (value, element, regexp) {
