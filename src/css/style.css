@@ -707,37 +707,58 @@ input[type="range"]::-moz-range-thumb {
 .location-block.active {
   @apply border-primary ring-1 ring-primary;
 }
-/* CART DATA TABLE */
-.cart-table .cart-table__body .items .item {
+/* CART DATA TABLE & ORDER DATA TABLE */
+.cart-table .cart-table__body .items .item,
+.order-table .order-table__body .items .item  {
   @apply border border-borderColor md:border-l-0 md:border-r-0 mb-3 last:mb-0 lg:border-b-0;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap {
+.cart-table .cart-table__body .items .item .item__inner-wrap,
+.order-table .order-table__body .items .item .item__inner-wrap {
   @apply flex flex-wrap items-center relative bg-primary md:bg-transparent;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap::before {
+.cart-table .cart-table__body .items .item .item__inner-wrap::before,
+.order-table .order-table__body .items .item .item__inner-wrap::before  {
   content: "";
   @apply bg-gray-300 absolute bottom-0 left-0 h-[1px] w-full md:hidden;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap.no-border-before::before {
+.cart-table .cart-table__body .items .item .item__inner-wrap.no-border-before::before,
+.order-table .order-table__body .items .item .item__inner-wrap.no-border-before::before {
   @apply hidden;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap .item__heading {
+.cart-table .cart-table__body .items .item .item__inner-wrap .item__heading,
+.order-table .order-table__body .items .item .item__inner-wrap .item__heading  {
   @apply w-1/3 p-2 text-sm bg-primary text-white md:hidden min-h-full;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap .item__data {
+.cart-table .cart-table__body .items .item .item__inner-wrap .item__data,
+.order-table .order-table__body .items .item .item__inner-wrap .item__data  {
   @apply w-2/3 md:w-full py-2 px-3 md:text-center min-h-[4rem] bg-white;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap .item__data .product-content {
+.cart-table .cart-table__body .items .item .item__inner-wrap .item__data .product-content,
+.order-table .order-table__body .tems .item .item__inner-wrap .item__data .product-content  {
   @apply lg:text-left;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap .item__data .product-content .product-title {
+.cart-table .cart-table__body .items .item .item__inner-wrap .item__data .product-content .product-title,
+.order-table .order-table__body .items .item .item__inner-wrap .item__data .product-content .product-title  {
   @apply text-dark;
 }
-.cart-table .cart-table__body .items .item .item__inner-wrap .item__data ul li {
+.cart-table .cart-table__body .items .item .item__inner-wrap .item__data ul li,
+.order-table .order-table__body .items .item .item__inner-wrap .item__data ul li  {
   @apply text-dark font-medium text-sm mb-1.5 last:mb-0;
 }
 .cart-table .cart-table__body .items .item .item__inner-wrap .item__data .qty-input {
   @apply text-dark mr-3 w-12 px-2 py-1;
+}
+.order-table .order-table__body .items .item .item__inner-wrap .item__data .status {
+  @apply inline-block px-4 py-1.5 text-sm font-medium rounded-3xl;
+}
+.order-table .order-table__body .items .item .item__inner-wrap .item__data .status.status--success {
+  @apply bg-green-200 text-green-900;
+}
+.order-table .order-table__body .items .item .item__inner-wrap .item__data .status.status--pending {
+  @apply bg-orange-200 text-orange-900;
+}
+.order-table .order-table__body .items .item .item__inner-wrap .item__data .status.status--cancelled {
+  @apply bg-red-200 text-red-900;
 }
 
 /* CHECKOUT PAGE */
@@ -764,4 +785,21 @@ input[type="range"]::-moz-range-thumb {
 }
 .order-summary-container {
   @apply lg:top-[144px];
+}
+
+/* MY ACCOUNT PAGE */
+.account-section .account-sidebar .account-nav ul li a {
+  @apply py-3 px-4 text-dark font-medium flex items-center rounded-sm hover:text-primary whitespace-nowrap;
+}
+.account-section .account-sidebar .account-nav ul li.active a {
+  @apply bg-primary text-gray-200;
+}
+.account-section .account-sidebar .account-nav ul li.active a svg path {
+  @apply fill-white;
+}
+.account-section .content-area .content-area__body .account__btn--add-address {
+  @apply flex items-center justify-center;
+}
+.account-section .content-area ul.address-list {
+
 }

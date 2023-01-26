@@ -520,6 +520,7 @@ $(document).ready(function () {
     });
 });
 
+
   function loadJS(FILE_URL) {
     let scriptEle = document.createElement("script");
 

@@ -6,17 +6,28 @@ $(document).ready(function () {
   current = current.replace("/", "");
 
   // console.log(current);
-  if (current !== "") {
-    $(".site-header .nav-menu li").removeClass("active");
-    $(".site-header .nav-menu li a").each(function () {
-      var $this = $(this);
-      // if the current path is like this link, make it active
-      if ($this.attr("href") === current) {
-        $this.parent().addClass("active");
-      }
-    });
-  } else {
-    $(".site-header .nav-menu li:first-child").addClass("active");
+  var headerMenuLi = $(".site-header .nav-menu li");
+  var accountMenuLi = $(".account-nav li");
+  activeNavLinkFunc(headerMenuLi);
+  activeNavLinkFunc(accountMenuLi);
+
+  function activeNavLinkFunc(el) {
+    var anchorLinks = el.find("a");
+    var firstListChild = el.first();
+
+    if (current !== "") {
+      $(el).removeClass("active");
+
+      anchorLinks.each(function () {
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if ($this.attr("href") === current) {
+          $this.parent().addClass("active");
+        }
+      });
+    } else {
+      firstListChild.addClass("active");
+    }
   }
 
   // Newsletter Form
@@ -152,7 +163,6 @@ $(document).ready(function () {
     },
   });
 
-
   $.validator.addMethod(
     "pattern",
     function (value, element, regexp) {
@@ -237,7 +247,58 @@ $(document).ready(function () {
           getDefaultCheckbox.checked;
         }
         $(this).closest(".dropdown-menu").prev().find(".filter-dropdown__placeholder").text(vals);
+      }
+    });
+  });
 
+  // ADD TO CART FUNCTION - CART OFFCANVAS OPENING
+  const addToCartBtns = $(".menu-item .menu-item__btn--cart");
+  addToCartBtns.each(function () {
+    $(this).on("click", function (e) {
+      e.preventDefault();
+      var getID = $(this).closest(".menu-item").attr("data-id");
+      console.log(getID);
+
+      // OPENING CART OFFCANVAS
+      $("#cartOffcanvas").offcanvas("show");
+    });
+  });
+
+  $(".account__btn--add-address").click(function () {
+    $(".add-address-form").removeClass("hidden");
+  });
+  $(".account__btn--cancel-add-address").click(function (e) {
+    e.preventDefault();
+    $(".add-address-form").addClass("hidden");
+  });
+
+  // OPENING EDIT ADDRESS FORM FOR EACH ADDRESS ITEM
+  $(".address-item__btn--edit").each(function () {
+    $(this).on("click", function (e) {
+      e.preventDefault();
+      $(this).closest(".address-item").find(".edit-address-form").removeClass("hidden");
+    });
+  });
+
+  // HIDING EDIT ADDRSSS FORM ON CLICK OF THE BUTTON CANCEL
+  $(".address-item__btn--cancel").each(function () {
+    $(this).on("click", function (e) {
+      e.preventDefault();
+      $(this).closest(".form").addClass("hidden");
+    });
+  });
+
+  // DELETE ADDRESS BUTTON
+  $(".address-item__btn--delete").each(function () {
+    $(this).on("click", function (e) {
+      e.preventDefault();
+      var getAddressID = $(this).closest(".address-item").attr("data-id");
+      // console.log(getAddressID);
+      var text = "Do you want to delete this address?";
+
+      if (confirm(text) == true) {
+        // PERFORM DELETE ADDRESS OPERATION
+        console.log('Deleted this address with ID:' + getAddressID);
       }
     });
   });

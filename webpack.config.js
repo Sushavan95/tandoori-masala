@@ -64,6 +64,7 @@ module.exports = {
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/home.html'), filename: 'home.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/about-us.html'), filename: 'about-us.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/contact-us.html'), filename: 'contact-us.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/gallery.html'), filename: 'gallery.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/our-menu.html'), filename: 'our-menu.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/order-online.html'), filename: 'order-online.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/cart.html'), filename: 'cart.html' }),
@@ -71,7 +72,14 @@ module.exports = {
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/login.html'), filename: 'login.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/my-account.html'), filename: 'my-account.html' }),
     new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/register.html'), filename: 'register.html' }),
-    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/gallery.html'), filename: 'gallery.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/my-addresses.html'), filename: 'my-addresses.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/my-orders.html'), filename: 'my-orders.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/faqs.html'), filename: 'faqs.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/privacy-policy.html'), filename: 'privacy-policy.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/return-policy.html'), filename: 'return-policy.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/terms-condition.html'), filename: 'terms-condition.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', minify:false, template: path.resolve(process.cwd(), 'src/account-settings.html'), filename: 'account-settings.html' }),
+
 
     // EXTRACTS CSS INTO SEPARATE CSS FILE
     new MiniCssExtractPlugin({
@@ -125,7 +133,15 @@ module.exports = {
     path.resolve(process.cwd(), 'src/login.html'),
     path.resolve(process.cwd(), 'src/register.html'),
     path.resolve(process.cwd(), 'src/my-account.html'),
-    path.resolve(process.cwd(), 'src/gallery.html')],
+    path.resolve(process.cwd(), 'src/gallery.html'),
+    path.resolve(process.cwd(), 'src/my-addresses.html'),
+    path.resolve(process.cwd(), 'src/my-orders.html'),
+    path.resolve(process.cwd(), 'src/faqs.html'),
+    path.resolve(process.cwd(), 'src/privacy-policy.html'),
+    path.resolve(process.cwd(), 'src/return-policy.html'),
+    path.resolve(process.cwd(), 'src/terms-condition.html'),
+    path.resolve(process.cwd(), 'src/account-settings.html')
+  ],
     compress: true,
     port: 9000,
     hot: true,
